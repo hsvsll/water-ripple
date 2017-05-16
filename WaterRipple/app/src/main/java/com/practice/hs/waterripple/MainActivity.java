@@ -5,8 +5,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 
-public class MainActivity extends AppCompatActivity {
-private Button mBt;
+public class MainActivity extends AppCompatActivity implements View.OnClickListener{
+    private Button mBt;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -15,13 +16,16 @@ private Button mBt;
         initView();
     }
 
-    private void initView() {
-        mBt.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                TestActivity.navigationToActivity(MainActivity.this);
-            }
-        });
 
+
+    private void initView() {
+        mBt.setOnClickListener(this);
+    }
+
+    @Override
+    public void onClick(View v) {
+        if(v.getId() == R.id.btWaterRippleTwo ) {
+            TestActivity.navigationToActivity(MainActivity.this);
+        }
     }
 }

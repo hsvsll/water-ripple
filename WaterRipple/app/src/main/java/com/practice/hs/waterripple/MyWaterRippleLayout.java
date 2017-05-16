@@ -71,7 +71,7 @@ public class MyWaterRippleLayout extends LinearLayout implements Runnable{
                 postInvalidateDelayed(INVALIDATE_DURATION);
                 mDispatchUpTouchEventRunnable.event = ev;
                 postDelayed(mDispatchUpTouchEventRunnable, 400);
-                break;
+                return true;
             case MotionEvent.ACTION_CANCEL:
                 mIsPressed = false;
                 postInvalidateDelayed(INVALIDATE_DURATION);
